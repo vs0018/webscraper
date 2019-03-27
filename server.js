@@ -16,8 +16,8 @@ axios.get("https://blog.hackerrank.com/").then(function(response) {
   // Empty array to save our scraped data
   var results = [];
 
-  // With cheerio, find each li-tag and loop through the results
-  $("li").each(function(i, element) {
+  // With cheerio, find each ul-tag and loop through the results
+  $("ul.blog-list").children().each(function(i, element) {
 
     // Save the text of the a-tag as "title"
     var title = $(element).find("a").text();
