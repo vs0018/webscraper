@@ -74,11 +74,6 @@ app.get("/scrape", function (req, res) {
 });
 
 
-
-
-
-
-
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
   // Grab every document in the Articles collection
@@ -133,31 +128,3 @@ app.post("/articles/:id", function (req, res) {
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var cheerio = require("cheerio");
-var axios = require("axios");
-
-// First, tell the console what server2.js is doing
-console.log("\n******************************************\n" +
-  "Grabbing every article headline and link\n" +
-  "from the HackerRank Blog:" +
-  "\n******************************************\n");
