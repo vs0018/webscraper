@@ -43,4 +43,33 @@ $("#addNote").on('click', function (){
   });
 });
 
+//click event to create a note
+$("#submitNote").on('click', function (event) {
+  event.preventDefault();
+  sendNote($(this));
+});
+
+//keypress event to allow user to submit note with enter key
+$("#noteBodyEntry").on('keypress', function (event) {
+  if(event.keyCode === 13){
+    sendNote($(this));
+  }
+});
+
+//click event to delete an article from savedArticles
+$("#delete").on('click', function (event){
+  event.preventDefault();
+  let id = $(this).data("id");
+  $.ajax({
+    url: "/deleteArticle/" + id,
+    type: "DELETE",
+    success: function (response) {
+      window.location.href = "/saved";
+    },
+    error: function (error) {
+      showErrorModal(error);
+    }
+  });
+});
+
 });

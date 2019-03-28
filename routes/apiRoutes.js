@@ -50,11 +50,10 @@ app.get("/scrape", function (req, res) {
     });
     
     res.redirect("/");
-    // Send a message to the client
-    // res.send("Scraped # New Articles");
   });
 });
 
+//ARTICLES
 
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
@@ -107,7 +106,7 @@ app.post("/articles/:id", function (req, res) {
     });
 });
 
-//get route to update 'saved' boolean to true
+//get route to update an Article's 'saved' boolean to true
 app.get('/save/:id', function (req, res) {
   db.Article.update({_id: req.params.id}, {saved: true})
     .then(function (result) {
@@ -117,6 +116,19 @@ app.get('/save/:id', function (req, res) {
       res.json(err)
     });
 });
+
+//delete route to remove an article from saved page
+app.delete('/deleteArticle/:id', function(req, res){
+  db.Article.remove({_id: req.params.id})
+    .then(function(result) {
+      res.json(result)
+    })
+    .catch(function(err) {
+      res.json(err)
+    });
+});
+
+//NOTES
 
 //get route to retrieve all notes for a particlular article
 app.get("/getNotes/:id", function (req, res){
