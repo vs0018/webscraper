@@ -32,6 +32,11 @@ app.get("/scrape", function (req, res) {
         .find("a")
         .attr("href");
 
+      // Find the li tag's href value as "link"
+      result.text = $(this)
+        .find("p")
+        .text();
+
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function (dbArticle) {
