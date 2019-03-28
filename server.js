@@ -48,7 +48,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the website
 app.get("/scrape", function (req, res) {
   // Making a request via axios for `hackerrank.com`'s blog
   axios.get("https://blog.hackerrank.com/").then(function (response) {
