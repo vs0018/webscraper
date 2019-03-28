@@ -48,9 +48,10 @@ app.get("/scrape", function (req, res) {
           console.log(err);
         });
     });
-
+    
+    res.redirect("/");
     // Send a message to the client
-    res.send("Scraped # New Articles");
+    // res.send("Scraped # New Articles");
   });
 });
 
@@ -103,6 +104,17 @@ app.post("/articles/:id", function (req, res) {
     .catch(function (err) {
       // If an error occurred, send it to the client
       res.json(err);
+    });
+});
+
+//get route to update 'saved' boolean to true
+app.get('/save/:id', function (req, res) {
+  db.Article.update({_id: req.params.id}, {saved: true})
+    .then(function (result) {
+      res.redirect('/')
+    })
+    .catch(function (err) {
+      res.json(err)
     });
 });
 
