@@ -20,12 +20,12 @@
   <hr>
 
   <div id="articles">
-    {{#each articles}}
+    {{#each dbArticle}}
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{title}}</h5>
-          <p class="card-text">{{link}}</p>
-          <button class="btn btn-primary"></button>
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.link}}</p>
+          <button class="btn btn-primary">Save</button>
         </div>
       </div>
     {{/each}}

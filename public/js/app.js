@@ -1,20 +1,5 @@
 $(document).ready(function() {
 
-// Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  var hbsObject = {
-    articles: data
-  };
-  console.log(hbsObject);
-  return hbsObject;
-
-  // for (var i = 0; i < data.length; i++) {
-  //   // Display the apropos information on the page
-  //   $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  // }
-});
-
-
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
   // Empty the notes from the note section
