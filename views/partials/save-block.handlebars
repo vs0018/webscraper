@@ -1,0 +1,16 @@
+{{#unless saved}}
+  {{#each dbArticle}}
+  
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{link}}</p>
+        {{!-- <button class="btn btn-success" id="note" data-id="{{this._id">Add Note</button> --}}
+        {{!-- <button class="btn btn-danger" id="delete" data-id="{{this._id">Delete from Saved</button> --}}
+      </div>
+    </div>
+    <br>
+  {{/each}}
+{{else}}
+    <h4>No saved articles yet!</h4>
+{{/if}}
