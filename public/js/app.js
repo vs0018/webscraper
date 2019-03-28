@@ -34,6 +34,11 @@ $(document).ready(function() {
 //     });
 // });
 
+//function to display error modal on ajax error
+function showErrorModal(error) {
+  $('#error').modal('show');
+}
+
 // When you click the save button
 $("#save").on('click', function () {
   var articleId = $(this).attr("data-id");

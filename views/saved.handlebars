@@ -1,0 +1,63 @@
+  <div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <h1 class="display-4">Mongo Scraper</h1>
+    <p class="lead">HackerRank Edition</p>
+  </div>
+  <hr>
+
+<div id="articles">
+  {{#each dbArticle}}
+    {{#if saved}}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <p class="card-text">{{link}}</p>
+          <p class="card-text">{{text}}</p>
+          <button class="btn btn-success" id="note" data-id={{_id}}>Add Note</button>
+          <button class="btn btn-danger" id="delete" data-id={{_id}}>Delete from Saved</button>
+        </div>
+      </div>
+      <br>
+    {{/if}}
+  {{else}}
+      <h4>No saved articles yet!</h4>
+  {{/each}}
+</div>
+
+</div>
+  
+  
+  {{!-- modal for displaying and creating notes --}}
+  <div id="noteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">Add a note</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="noteTitleEntry" class="noteInput" placeholder="Enter Title">
+          <input type="text" id="noteBodyEntry" class="noteInput" placeholder="Enter Body">
+          <div id="noteArea"></div>
+        </div>
+        <div class="modal-footer">
+          <h5 class="instructions">Click the note to read it, or X to delete</h5>
+          <button type="button" id="submitNote">Save Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- error modal --}}
+  <div id="error" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h2>There was an error processing your request.  Please try again later.</h2>
+        </div>
+      </div>
+    </div>
+  </div>

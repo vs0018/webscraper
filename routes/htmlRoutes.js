@@ -23,6 +23,16 @@ module.exports = function (app) {
   });
 
   app.get("/saved", function (req, res) {
-    res.render("saved");
+    // Grab every document in the Articles collection
+    db.Article.find({})
+    .then(function (dbArticle) {
+      console.log(dbArticle);
+      // If we were able to successfully find Articles, send them back to the client
+      res.render("saved", {dbArticle});
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
   });
 };
