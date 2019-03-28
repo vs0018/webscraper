@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 // When you click the save button
 $("#save").on('click', function () {
-  var articleId = $(this).attr("data_id");
+  var articleId = $(this).attr("data-id");
   console.log(articleId);
 
   $.ajax({
