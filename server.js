@@ -37,12 +37,16 @@ mongoose.connect(MONGODB_URI);
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    layoutsDir: __dirname + "/views/pages/",
+    partialsDir: __dirname + "/views/partials/"
   })
 );
 app.set("view engine", "handlebars");
 
 // Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
@@ -80,7 +84,7 @@ app.get("/scrape", function (req, res) {
     });
 
     // Send a message to the client
-    res.send("Scrape Complete");
+    res.send("Scraped # New Articles");
   });
 });
 
