@@ -11,7 +11,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{title}}</h5>
-          <p class="card-text">{{link}}</p>
+          <a class="card-text" href={{link}}>Click here to Read!</a>
+          <hr>
           <p class="card-text">{{text}}</p>
           <button class="btn btn-success" id="addNote" data-id={{_id}}>Add Note</button>
           <button class="btn btn-danger" id="delete" data-id={{_id}}>Delete from Saved</button>
@@ -29,11 +30,13 @@
   
   {{!-- modal for displaying and creating notes --}}
   <div id="noteModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center">Add a note</h4>
+          <h4 class="modal-title">Add a note</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
           <input type="text" id="noteTitleEntry" class="noteInput" placeholder="Enter Title">
@@ -42,7 +45,7 @@
         </div>
         <div class="modal-footer">
           <h5 class="instructions">Click the note to read it, or X to delete</h5>
-          <button type="button" id="submitNote">Save Note</button>
+          <button class="btn btn-success" type="button" id="submitNote">Save Note</button>
         </div>
       </div>
     </div>
